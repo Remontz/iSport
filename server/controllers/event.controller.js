@@ -9,7 +9,7 @@ const EventController = {
                 res.status(201).json(result)
             })
             .catch((err) => {
-                res.status(404).json({ msg: 'Error encountered when creating event', error: err })
+                res.status(400).json({ msg: 'Error encountered when creating event', error: err })
             })
     },
 

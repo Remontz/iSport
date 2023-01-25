@@ -2,14 +2,14 @@ const EventController = require('../controllers/event.controller')
 
 const routes = (app) => {
     //C
-    app.post('/api/event', EventController.create)
+    app.post('/api/events', EventController.create)
     //R
-    app.get('/api/event', EventController.getAll)
-    app.get('/api/event/:id', EventController.getOne)
+    app.get('/api/events', EventController.getAll)
+    app.get('/api/events/:id', EventController.getOne)
     //U
-    app.put('/api/event/:id', EventController.update)
+    app.put('/api/events/:id', EventController.update)
     //D
-    app.delete('/api/event/:id', EventController.delete)
+    app.delete('/api/events/:id', EventController.delete)
 }
 
 module.exports = routes
