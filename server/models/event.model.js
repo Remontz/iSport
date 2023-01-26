@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const eventSchema = new mongoose.Schema({
+const EventSchema = new mongoose.Schema({
     // Event Name
     eventName: {
         type: String,
@@ -38,23 +38,27 @@ const eventSchema = new mongoose.Schema({
     //Max Attendees
     maxAttend: {
         type: Number,
-
+        required: [true, 'maximum number of participants is required']
     },
     // Attendees
-    eventName: {
-
+    attending: {
+        type: Number
     },
     //Time of Event
-    eventName: {
-
-    },
-    // Creator
-    eventName: {
-
+    time: {
+        type: Date,
+        required: [true, 'Time of event is required']
     },
     // Date
-    eventName: {
-
+    date: {
+        type: Date,
+        required: [true, 'Date of event is required']
+    },
+    // Creator
+    creator: {
+        type: String,
+        required: [true, 'Creator Name is required'],
+        minLength: [5, 'Creator Name must be at least 5 characters.']
     }
 }, { timestamp: true })
 
