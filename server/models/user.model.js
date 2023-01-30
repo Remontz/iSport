@@ -29,8 +29,12 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Password is required"],
         minLength: [8, "Password must be 8 characters or longer"]
-    }
+    },
     //Birth date
+    birthDate: {
+        type: Date,
+        required: [true, 'Birthdate is required']
+    }
 
 
 }, { timestamps: true })

@@ -38,12 +38,14 @@ const EventSchema = new mongoose.Schema({
     //Max Attendees
     maxAttend: {
         type: Number,
-        required: [true, 'maximum number of participants is required']
+        required: [true, 'maximum number of participants is required'],
+        min: [2, "Min amount of attendees is two."]
     },
     // Attendees
-    attending: {
-        type: Number
-    },
+    attendees: [{
+        type: mongoose.Types.ObjectId,
+        ref: "User"
+    }],
     //Time of Event
     time: {
         type: Date,
@@ -55,10 +57,10 @@ const EventSchema = new mongoose.Schema({
         required: [true, 'Date of event is required']
     },
     // Creator
-    creator: {
-        type: String,
-        required: [true, 'Creator Name is required'],
-        minLength: [5, 'Creator Name must be at least 5 characters.']
+    creatorId: {
+        type: mongoose.Types.ObjectId,
+        ref: "User",
+        required: [true, "User must be logged in before creating a lobby"]
     }
 }, { timestamp: true })
 
